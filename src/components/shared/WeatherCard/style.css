@@ -1,0 +1,25 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    background-color: white;
+    margin: 1rem;
+    padding: 2rem;
+    text-align: center;
+    
+    width: 140px;
+    height: 150px;
+}
+
+.card__header > div {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.5rem;
+}
+
+.header__date {
+    margin-bottom: 2rem !important;
+}
+
+
