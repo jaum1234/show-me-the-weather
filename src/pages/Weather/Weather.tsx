@@ -1,35 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "../../components/shared/Button/Button";
-import WeatherCard from "../../components/shared/WeatherCard/WeatherCard";
+import Button from "../../components/Button";
+import WeatherCard from "../../components/WeatherCard";
 import WeatherController from "../../APIs/WeatherAPI";
 import IWeather from "../../interfaces/IWeather";
 import './style.css';
-import ErrorMessage from "../../components/shared/ErrorMessage/ErrorMessage";
+import ErrorMessage from "../../components/ErrorMessage";
+import Form from "../../components/Form";
 
 const weatherHttp = new WeatherController();
 
 const Weather = () =>
 {
-    const [city, setCity] = useState<string>('');
-    const [country, setCountry] = useState<string>('');
+    const [country] = useState();
+    const [city, setCity] = useState();
     
     const [weatherInfo, setWeatherInfo] = useState<IWeather[]>([]);
     const [error_msg, setErrorMsg] = useState<string>('');
-    
-    const handleCityChange = (event: React.FormEvent<HTMLInputElement>): void => {
-        const target = event.currentTarget;
-        const value = target.value
-       
-        setCity(value);
-    }
-
-    const handleCountryChange = (event: React.FormEvent<HTMLInputElement>): void => {
-        const target = event.currentTarget;
-        const value = target.value
-
-        setCountry(value);
-    }
 
     const clearCurrentState = (): void => {
         setWeatherInfo([]);
@@ -100,27 +87,21 @@ const Weather = () =>
     return(
         <div className="weather">
 
-            { error_msg ? <ErrorMessage error_msg={ error_msg }/> : '' }
+            { error_msg && <ErrorMessage error_msg={ error_msg }/> }
 
-            <form className="weather__form">
-                <div>
-                    <label htmlFor="">City</label>
-                    <input placeholder="choose a city" required name="city" type="text" value={city} onChange={handleCityChange}/>
-                </div>
-                <div>
-                    <label htmlFor="">Country</label>
-                    <input placeholder="choose a country" required name="country" type="text" value={country} onChange={handleCountryChange}/>
-                </div>
-               
-                <div className="weather__cards">
-                   { weatherCards }
-                </div>
+            <Form/>
+            <div className="weather__cards">
+                { weatherCards }
+            </div>
 
-                <div className="buttons">
-                    <div><Button action={ getCurrentWeather } label="Current" type="button"/></div>
-                    <div><Button action={ getWeather } label="Forecast" type="button"/></div>
+            <div className="buttons">
+                <div>
+                    <Button onClick={ getCurrentWeather } type="button">Current</Button>
                 </div>
-            </form>
+                <div>
+                    <Button onClick={ getWeather } type="button">Forecast</Button>
+                </div>
+            </div>
             <Link to="/">Back</Link>
         </div>
     );

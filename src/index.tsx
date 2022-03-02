@@ -5,8 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSnowflake, faSun, faCloudShowersHeavy, faCloudSunRain, faCloud } from '@fortawesome/free-solid-svg-icons';
-library.add(faSnowflake, faSun, faCloudShowersHeavy, faCloudSunRain, faCloud);
+import { faCloud } from '@fortawesome/free-solid-svg-icons';
+library.add(faCloud);
 
 ReactDOM.render(
   <React.StrictMode>

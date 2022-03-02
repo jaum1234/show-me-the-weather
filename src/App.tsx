@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Logo from './components/shared/Logo/Logo';
-import Home from './view/Home/Home';
-import Weather from './view/Weather/Weather';
+import Logo from './components/Logo';
+import Home from './pages/Home/Home';
+import Weather from './pages/Weather/Weather';
 
 import './App.css';
 import './index.css';
@@ -25,7 +25,7 @@ const App = () =>
     document.body.style.background = '#2e2e2e';
     document.body.style.color = 'white' 
     setLogoSrc('https://monophy.com/media/VCQ5AePssPvNtk5Ak4/monophy.gif')
-  })
+  }, [logoSrc])
 
 
   return (
