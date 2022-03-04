@@ -1,4 +1,4 @@
-import './style.css';
+import style from './Logo.module.css';
 
 type LogoProps = {
     src: string
@@ -9,9 +9,10 @@ const Logo = ({src}: LogoProps): JSX.Element =>
     return(
         <div>
             <img 
-                className='logo' 
+                className={ style.logo } 
                 src={ src }
-                alt="logo"/>
+                alt="logo"
+            />
         </div>
     );
 }

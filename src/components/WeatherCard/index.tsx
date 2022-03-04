@@ -1,32 +1,38 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import IWeather from "../../interfaces/IWeather";
 import { formatDate } from "../../utils/formatDate";
-import './style.css';
+import { TiWeatherCloudy } from 'react-icons/ti';
+import style from './WeatherCard.module.css';
 
 type WeatherCardProps = {
-    weather: IWeather
+    city: string,
+    country: string,
+    temp?: number,
+    min?: number,
+    max?: number,
+    description: string,
+    index?: number
 }
 
-const WeatherCard = ({ weather }: WeatherCardProps): JSX.Element => 
+const WeatherCard = ({ city, country, temp, description, min, max, index }: WeatherCardProps): JSX.Element => 
 {
     return(
         <div>
-            <div className="card">
-                <div className="card__header">
-                    <div className="header__date"> { formatDate(weather.valid_date) } </div>
+            <div className={ style.card }>
+                <div className={ style.cardHeader }>
+                    <div className={ style.headerDate }> { formatDate(new Date(), index) } </div>
                     <div>
-                        <FontAwesomeIcon icon="cloud"/>
+                        <TiWeatherCloudy/>
                     </div>
-                    <div>{ weather.temp }</div>
-                    <div>{ weather.min_temp }  { weather.max_temp }</div>
+                    <div>{ temp ? `${temp} °C` : '' }</div>
+                    <div>{ min ? `${min} °C -` : '' } { max ? `${max} °C` : '' }</div>
                 </div>
-                <div className="card__body">
-                    <p>{ weather.city_name } - { weather.country_code }</p>
-                    <p>{ weather.weather.description }</p>
+                <div>
+                    <p>{ city } - { country }</p>
+                    <p>{ description }</p>
                 </div>
             </div>
         </div>
     )
 }
+
 
 export default WeatherCard;

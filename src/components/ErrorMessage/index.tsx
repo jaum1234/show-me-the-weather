@@ -1,13 +1,13 @@
-import './style.css';
+import style from './ErrorMessage.module.css';
 
 type ErrorMessageProps = {
-    error_msg: string
+    children: React.ReactNode;
 }
 
-const ErrorMessage = ({ error_msg }: ErrorMessageProps) => {
+const ErrorMessage = ({ children }: ErrorMessageProps) => {
     return(
-        <div className="error">
-            { error_msg }
+        <div className={ style.error }>
+            { children }
         </div>
     )
 }

@@ -12,13 +12,13 @@
     height: 150px;
 }
 
-.card__header > div {
+.cardHeader > div {
     font-size: 1.2rem;
     font-weight: bold;
     margin: 0.5rem;
 }
 
-.header__date {
+.headerDate {
     margin-bottom: 2rem !important;
 }
 

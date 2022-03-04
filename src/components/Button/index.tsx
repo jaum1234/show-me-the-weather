@@ -1,17 +1,16 @@
 import { ReactNode } from 'react';
-import './style.css'
+import style from './Button.module.css';
 
 type ButtonProps = {
-    type?: any,
-    onClick: () => void,
+    type?: "button" | "submit" | "reset" | undefined ,
     children: ReactNode
 }
 
-const Button = ({type, onClick, children}: ButtonProps): JSX.Element =>
+const Button = ({type, children}: ButtonProps): JSX.Element =>
 {
     return(
         <div>
-            <button onClick={ onClick } className="button" type={ type }>{ children }</button>
+            <button className={ style.button } type={ type }>{ children }</button>
         </div>
     );   
 }

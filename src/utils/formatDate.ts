@@ -1,9 +1,11 @@
-import moment from "moment";
+import moment, { Moment } from "moment";
 
-export const formatDate = (date?: string): string | void => {
-    
-    const actualDate = date ? date : new Date();
-    const formatedDate = moment(actualDate).format('DD/MM/YYYY');
+export const formatDate = (date: Date, daysToAdd?: number): string => {
+    let formatedDate: Moment= moment(date);
 
-    return formatedDate;
+    if (daysToAdd) {
+        formatedDate.add(daysToAdd, 'days');
+    }
+
+    return formatedDate.format('DD/MM/YYYY');
 }

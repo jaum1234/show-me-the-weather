@@ -1,7 +1,13 @@
-import { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import Button from "../Button";
+import style from './Form.module.css';
 
-const Form = (): JSX.Element => {
+type FormProps = {
+    send: (city: string, country: string) => Promise<any>;
+    setWeatherInfo: any
+}
+
+const Form = ({ send, setWeatherInfo }: FormProps): JSX.Element => {
 
     const [city, setCity] = useState<string>('');
     const [country, setCountry] = useState<string>('');
@@ -21,14 +27,37 @@ const Form = (): JSX.Element => {
     }
 
     return(
-        <form className="weather__form">
-            <div>
+        <form className={ style.form } onSubmit={ (event) => {
+            event.preventDefault();
+            send(city, country)
+                .then(data => {
+                    setWeatherInfo({...data});
+                })
+        }}>
+            <div className={ style.inputField }>
                 <label htmlFor="">City</label>
-                <input placeholder="choose a city" required name="city" type="text" value={city} onChange={handleCityChange}/>
+                <input 
+                    placeholder="choose a city" 
+                    required 
+                    name="city" 
+                    type="text" 
+                    value={ city } 
+                    onChange={ handleCityChange }
+                />
             </div>
-            <div>
+            <div className={ style.inputField }>
                 <label htmlFor="">Country</label>
-                <input placeholder="choose a country" required name="country" type="text" value={country} onChange={handleCountryChange}/>
+                <input 
+                    placeholder="choose a country" 
+                    required 
+                    name="country" 
+                    type="text" 
+                    value={ country } 
+                    onChange={ handleCountryChange }/>
+            </div>
+
+            <div className={ style.buttons }>
+                <Button>Get Weather</Button>
             </div>
         </form>
     );

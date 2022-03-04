@@ -1,0 +1,12 @@
+.options {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.link {
+    margin: 0 0.8rem;
+}
+
+
