@@ -3,7 +3,7 @@ import Box from "../../components/Box";
 import Button from "../../components/Button";
 import style from './ChooseWeather.module.css';
 
-const ChooseWeather = () => {
+const ChooseWeather = (): JSX.Element => {
     return(
         <Box>
             <h2>Select:</h2>

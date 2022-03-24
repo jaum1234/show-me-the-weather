@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchData } from "../../api";
 import Box from "../../components/Box"
@@ -35,7 +35,8 @@ const CurrentWeather = (): JSX.Element => {
                         temp,
                         description
                     }
-                    resolve(data)
+
+                    resolve(data);
                 })
                 .catch(() => {
                     setError(true);
@@ -46,19 +47,29 @@ const CurrentWeather = (): JSX.Element => {
         });
     }
 
+    useEffect(() => {
+        const weatherCard = document.querySelector('#card');
+        const position = weatherCard?.getBoundingClientRect();
+
+        window.scroll({
+            top: position?.top,
+            behavior: "smooth"
+        });
+    }, [weatherInfo]);
+
     return(
         <Box>
             <h2>Current Weather</h2>
-
             { 
                 error && 
                     <ErrorMessage>
                         No results found
                     </ErrorMessage>
             }
-
             <Form send={ currentWeather } setWeatherInfo={ setWeatherInfo }/>
-            { weatherInfo && <WeatherCard { ...weatherInfo }/> }
+            <div id="card">
+                { weatherInfo && <WeatherCard { ...weatherInfo }/> }
+            </div>
 
             <Link to='/choose-weather'>Back</Link>
         </Box>

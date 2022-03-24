@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchData } from "../../api";
 import Box from "../../components/Box";
@@ -62,6 +62,16 @@ const Forecast = (): JSX.Element => {
         });
     }
 
+    useEffect(() => {
+        const weatherCards = document.querySelector('#cards');
+        const position = weatherCards?.getBoundingClientRect();
+
+        window.scroll({
+            top: position?.top,
+            behavior: "smooth"
+        });
+    }, [weatherInfo]);
+
 
     return(
         <Box>
@@ -73,7 +83,7 @@ const Forecast = (): JSX.Element => {
                     </ErrorMessage>
             }
             <Form send={ dailyForecast } setWeatherInfo={ setWeatherInfo } />
-            <div className={ style.cardsContainer }>
+            <div className={ style.cardsContainer } id='cards'>
                 { weatherInfo?.list.map((info: {min: number, max: number, description: string}, index: number):JSX.Element => (
                     <WeatherCard 
                         city={ weatherInfo.city }

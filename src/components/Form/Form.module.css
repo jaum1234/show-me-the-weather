@@ -1,25 +1,26 @@
 .form {
     border-radius: 2px;
-    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     margin-bottom: 2rem;
+    color: #000;
 }
 
 .inputField {
     display: flex;
     flex-direction: column;
-    margin: 0.5rem 0;
+    margin: 1.2rem 0 0.5rem 0;
 }
 
 .inputField > input {
     border: none;
     padding: 0.5rem;
+    margin-top: 0.3rem;
     text-align: center;
     width: 150px;
     transition: 0.5s ease-in-out;
+    border-radius: 5px;
 }
 
 .inputField > input:focus {

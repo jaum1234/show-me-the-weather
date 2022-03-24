@@ -1,4 +1,44 @@
 .app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  width: 1320px;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
 
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .app {
+    width: 1140px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .app {
+    
+    width: 960px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .app {
+    width: 720px;
+    
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .app {
+    width: 540px;
+    
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .app {
+    
+    width: 95%;
+  }
 }

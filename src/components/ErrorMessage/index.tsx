@@ -4,7 +4,7 @@ type ErrorMessageProps = {
     children: React.ReactNode;
 }
 
-const ErrorMessage = ({ children }: ErrorMessageProps) => {
+const ErrorMessage = ({ children }: ErrorMessageProps): JSX.Element => {
     return(
         <div className={ style.error }>
             { children }
