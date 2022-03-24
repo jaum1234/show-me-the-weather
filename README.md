@@ -1,5 +1,5 @@
 # Weather App - Show Me the Weather
-## [Live site]()
+## [Live site](https://show-me-the-weather.vercel.app/)
 Simple, but awesome, weather app that allows the users to get the current weather or the forecast for the weekend based on a City/Country search.
 
 <img src='https://i.gyazo.com/33895c0666d66f430c8be52b92abfa62.gif' width='600px'>
@@ -8,7 +8,7 @@ Simple, but awesome, weather app that allows the users to get the current weathe
 - Typescript
 - React
 - React router dom
-
+- [Open Weather Map API](https://rapidapi.com/community/api/open-weather-map/)
 ## Running on localhost
 ```
     git clone https://github.com/jaum1234/show-me-the-weather.git
