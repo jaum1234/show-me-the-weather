@@ -4,7 +4,7 @@ Simple, but awesome, weather app that allows the users to get the current weathe
 
 <img src='https://i.gyazo.com/33895c0666d66f430c8be52b92abfa62.gif' width='600px'>
 
-## Technologies used
+## Some technologies used
 - Typescript
 - React
 - React router dom
