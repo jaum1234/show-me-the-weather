@@ -1,4 +1,4 @@
-# Weather App - Show Me the Weather
+# Show Me the Weather - Weather App done with React and Typescript 
 ## [Live site](https://show-me-the-weather.vercel.app/)
 Simple, but awesome, weather app that allows the users to get the current weather or the forecast for the weekend based on a City/Country search.
 
