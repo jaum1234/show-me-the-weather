@@ -4,11 +4,16 @@ Simple, but awesome, weather app that allows the users to get the current weathe
 
 <img src='https://i.gyazo.com/33895c0666d66f430c8be52b92abfa62.gif' width='600px'>
 
-## Some technologies used
+## Some technologies I used
 - Typescript
 - React
 - React router dom
 - [Open Weather Map API](https://rapidapi.com/community/api/open-weather-map/)
+
+## Features
+- Get current weather
+- Get forecast for the week
+
 ## Running on localhost
 ```
     git clone https://github.com/jaum1234/show-me-the-weather.git
